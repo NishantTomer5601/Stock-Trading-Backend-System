@@ -1,9 +1,7 @@
 import express from "express";
-import bodyParser from "body-parser";
 
 export const app = express();
-
-app.use(bodyParser({}));
+app.use(express.json());
 
 interface Balances {
   [key: string]: number;
@@ -122,7 +120,8 @@ app.get("/balance/:userId", (req, res) => {
 })
 
 app.get("/quote", (req, res) => {
-  // TODO: Assignment
+  //  for market orders:
+  //we first send a quote asking current market scenario of order book and then proceed accordingly
 });
 
 function flipBalance(userId1: string, userId2: string, quantity: number, price: number) {
